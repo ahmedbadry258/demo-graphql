@@ -1,0 +1,41 @@
+type Employee{
+    id:ID!
+    firstName: String!
+    lastName :String!
+    email : String!
+    phoneNumber : String!
+    job : String!
+}
+type Teacher{
+    id:ID!
+    name: String!
+    active :String
+}
+input EmployeeInput{
+    firstName: String!
+    lastName :String!
+    email : String!
+    phoneNumber : String!
+    job : String!
+}
+input TeacherInput{
+    id:String!
+    name:String!
+    active:String
+}
+type Query{
+    employees:[Employee]!
+    employeeById(id:ID):Employee
+    employeeByEmail(email:String):Employee
+    teachers:[Teacher]
+    teacherById(id:ID):Teacher
+    teacherByName(name:String):Teacher
+}
+type Mutation{
+    addEmployee(input : EmployeeInput):Employee
+    createEmployee( firstName: String!, lastName :String!,email : String!,phoneNumber : String!,job : String!):Employee
+    addTeacher(id:String,name:String):Teacher
+    deleteTeacher(id:ID):String
+     editTeacher(id:String,name:String):Teacher
+        createTeacher(input :TeacherInput):Teacher
+}
